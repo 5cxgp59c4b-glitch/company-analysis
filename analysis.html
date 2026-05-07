@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>企業分析 - 企業分析ツール</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="company.ico">
+  <link rel="apple-touch-icon" href="company.ico">
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="brand">
+      <span class="brand-dot"></span>企業分析ツール
+    </a>
+    <div class="nav-links">
+      <a href="index.html">ホーム</a>
+      <a href="profile.html">プロフィール</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <a href="index.html" class="back-link">← 企業一覧へ</a>
+    <div class="page-title-row">
+      <h1 id="company-title">読み込み中...</h1>
+      <button id="reanalyze-btn" class="btn btn-secondary" style="display:none">再分析</button>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:0">
+
+    <!-- ローディング -->
+    <div id="view-loading" class="card" style="display:none">
+      <div class="loading">
+        <div class="spinner"></div>
+        <div class="loading-text" id="loading-msg">企業情報を収集中...</div>
+      </div>
+    </div>
+
+    <!-- エラー -->
+    <div id="view-error" class="card" style="display:none">
+      <div class="alert alert-warning" id="error-msg"></div>
+      <button id="retry-btn" class="btn btn-primary">再試行</button>
+    </div>
+
+    <!-- 結果 -->
+    <div id="view-result" style="display:none">
+
+      <!-- 企業情報 -->
+      <div class="card">
+        <h2>企業情報</h2>
+
+        <div class="result-section">
+          <div class="result-label">技術スタック・開発環境</div>
+          <div class="result-content" id="r-tech"></div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="result-section">
+          <div class="result-label">事業内容・実績</div>
+          <div class="result-content" id="r-biz"></div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="result-section">
+          <div class="result-label">企業文化・特徴</div>
+          <div class="result-content" id="r-culture"></div>
+        </div>
+      </div>
+
+      <!-- マッチング -->
+      <div class="card">
+        <h2>マッチング分析</h2>
+        <div class="result-content" id="r-matching"></div>
+      </div>
+
+      <!-- 志望動機 -->
+      <div class="card">
+        <h2>志望動機ドラフト</h2>
+        <div class="motivation-box">
+          <div class="motivation-text" id="r-motivation"></div>
+          <button class="btn btn-primary copy-btn" id="copy-btn">コピー</button>
+        </div>
+      </div>
+
+      <!-- 自己PR -->
+      <div class="card">
+        <h2>自己PRドラフト</h2>
+        <div class="motivation-box">
+          <div class="motivation-text" id="r-selfpr"></div>
+          <button class="btn btn-primary copy-btn" id="copy-selfpr-btn">コピー</button>
+        </div>
+      </div>
+
+      <!-- メモ -->
+      <div class="card">
+        <h2>メモ</h2>
+        <div id="notes-list" class="notes-list"></div>
+        <div class="note-input-group">
+          <input type="text" id="note-input" placeholder="メモを入力...">
+          <button class="btn btn-secondary" id="add-note-btn">追加</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/analysis.js"></script>
+</body>
+</html>

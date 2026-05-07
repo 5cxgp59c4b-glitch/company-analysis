@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>企業分析ツール</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="company.ico">
+  <link rel="apple-touch-icon" href="company.ico">
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="brand">
+      <span class="brand-dot"></span>企業分析ツール
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">ホーム</a>
+      <a href="profile.html">プロフィール</a>
+    </div>
+  </nav>
+
+  <div id="alert-area" class="container" style="padding-bottom:0; display:none">
+    <div class="alert alert-warning">
+      ⚠ APIキーが未設定です。<a href="profile.html">プロフィール設定</a>からClaude APIキーを登録してください。
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-eyebrow">AI-Powered · Web Search · Claude API</div>
+    <h1>企業を<span class="hl">深く理解</span>する</h1>
+    <p>企業名を入力するだけで、AIが技術スタック・事業内容・志望動機まで自動生成します</p>
+    <div class="search-box">
+      <div class="search-group">
+        <input
+          type="text"
+          id="company-input"
+          placeholder="例：株式会社メルカリ"
+          autocomplete="off"
+        >
+        <button class="btn-search" id="analyze-btn">分析する</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+      <div class="section-title">
+        分析済み企業
+        <span id="company-count" class="tag tag-primary">0件</span>
+      </div>
+      <div id="company-list" class="company-list"></div>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>
